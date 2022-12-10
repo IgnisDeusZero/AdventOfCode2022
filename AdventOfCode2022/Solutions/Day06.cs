@@ -2,9 +2,9 @@
 
 namespace AdventOfCode2022.Solutions
 {
-    public class Day6 : SolutionBase
+    public class Day06 : SolutionBase
     {
-        public Day6() : base("./Inputs/Day6.txt")
+        public Day06() : base("./Inputs/Day06.txt")
         {
         }
 

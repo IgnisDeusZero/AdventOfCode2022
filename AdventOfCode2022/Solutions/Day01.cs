@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace AdventOfCode2022.Solutions
 {
-    public class Day1 : SolutionBase
+    public class Day01 : SolutionBase
     {
-        public Day1() : base("./Inputs/Day1.txt")
+        public Day01() : base("./Inputs/Day01.txt")
         {
         }
 

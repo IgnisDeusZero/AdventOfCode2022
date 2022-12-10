@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace AdventOfCode2022.Solutions
 {
-    public class Day9 : SolutionBase
+    public class Day09 : SolutionBase
     {
-        public Day9() : base("Inputs/Day9.txt")
+        public Day09() : base("Inputs/Day09.txt")
         {
         }
 
@@ -66,16 +66,18 @@ namespace AdventOfCode2022.Solutions
                 .Replace("\n", "/")
                 .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(x => x.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
-                .Select(x => (
-                Direction: x[0] switch
-                {
-                    "R" => (Row: 0, Col: 1),
-                    "L" => (Row: 0, Col: -1),
-                    "U" => (Row: -1, Col: 0),
-                    "D" => (Row: 1, Col: 0),
-                    _ => throw new NotImplementedException()
-                },
-                Moves: int.Parse(x[1])))
+                .Select(x => 
+                    (
+                        Direction: x[0] switch
+                        {
+                            "R" => (Row: 0, Col: 1),
+                            "L" => (Row: 0, Col: -1),
+                            "U" => (Row: -1, Col: 0),
+                            "D" => (Row: 1, Col: 0),
+                            _ => throw new NotImplementedException()
+                        },
+                        Moves: int.Parse(x[1])
+                    ))
                 .Aggregate(
                     new
                     {
@@ -97,7 +99,6 @@ namespace AdventOfCode2022.Solutions
                                     .ToList()
                                     .ForEach(ropePart =>
                                         {
-
                                             var headRowIndex = ropePart * 2 - 2;
                                             var headColIndex = ropePart * 2 - 1;
                                             var tailRowIndex = ropePart * 2 + 0;

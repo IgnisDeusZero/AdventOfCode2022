@@ -5,9 +5,9 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode2022.Solutions
 {
-    public class Day5 : SolutionBase
+    public class Day05 : SolutionBase
     {
-        public Day5() : base("./Inputs/Day5.txt")
+        public Day05() : base("./Inputs/Day05.txt")
         {
         }
 

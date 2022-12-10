@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AdventOfCode2022.Solutions
 {
-    public class Day2 : SolutionBase
+    public class Day02 : SolutionBase
     {
         Dictionary<string, int> strategy1 = new Dictionary<string, int>
         {
@@ -31,7 +31,7 @@ namespace AdventOfCode2022.Solutions
             ["C Z"] = "C X",
         };
 
-        public Day2() : base("./Inputs/Day2.txt")
+        public Day02() : base("./Inputs/Day02.txt")
         {
         }
 
