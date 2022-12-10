@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Linq;
 
 namespace AdventOfCode2022.Solutions
 {
@@ -24,7 +21,7 @@ namespace AdventOfCode2022.Solutions
                     ? state.FirstMarkerPos ?? state.Pos
                     : state.FirstMarkerPos)
                     )
-                .Item3
+                .FirstMarkerPos
                 .ToString();
         }
 
@@ -41,7 +38,7 @@ namespace AdventOfCode2022.Solutions
                     ? state.FirstMarkerPos ?? state.Pos
                     : state.FirstMarkerPos)
                     )
-                .Item3
+                .FirstMarkerPos
                 .ToString();
         }
     }
