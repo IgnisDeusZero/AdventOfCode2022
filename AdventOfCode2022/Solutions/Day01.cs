@@ -12,11 +12,8 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).Sum())
+                .SplitByDoubleNewlines()
+                .Select(x => x.SplitByNewlines().Select(int.Parse).Sum())
                 .Max()
                 .ToString();
         }
@@ -24,11 +21,8 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).Sum())
+                .SplitByDoubleNewlines()
+                .Select(x => x.SplitByNewlines().Select(int.Parse).Sum())
                 .OrderByDescending(x => x)
                 .Take(3)
                 .Sum()

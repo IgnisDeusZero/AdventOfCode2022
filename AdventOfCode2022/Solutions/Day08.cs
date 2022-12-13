@@ -12,9 +12,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             var forest = Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Select(x => x.Select(c => int.Parse(c.ToString())).ToArray())
                 .ToArray();
             var visibilityFromRight = GetVisibilityFromRight(forest);
@@ -108,9 +106,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             var forest = Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Select(x => x.Select(c => int.Parse(c.ToString())).ToArray())
                 .ToArray();
             var scores = forest

@@ -12,19 +12,13 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)[1]
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByDoubleNewlines()[1]
+                .SplitByNewlines()
                 .Select(c => c.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Where(x => char.IsDigit(x[0])).Select(int.Parse).ToArray())
                 .Aggregate(
                     Input
-                        .Replace("\r\n", "/")
-                        .Replace("\n", "/")
-                        .Replace("//", "*")
-                        .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)[0]
-                        .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                        .SplitByDoubleNewlines()[0]
+                        .SplitByNewlines()
                         .Reverse()
                         .Skip(1)
                         .SelectMany((row, rowIndex) => Enumerable.Range(0, 9).Select(i => (rowIndex, i, row[i * 4 + 1])))
@@ -47,19 +41,13 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)[1]
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByDoubleNewlines()[1]
+                .SplitByNewlines()
                 .Select(c => c.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Where(x => char.IsDigit(x[0])).Select(int.Parse).ToArray())
                 .Aggregate(
                     Input
-                        .Replace("\r\n", "/")
-                        .Replace("\n", "/")
-                        .Replace("//", "*")
-                        .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)[0]
-                        .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                        .SplitByDoubleNewlines()[0]
+                        .SplitByNewlines()
                         .Reverse()
                         .Skip(1)
                         .SelectMany((row, rowIndex) => Enumerable.Range(0, 9).Select(i => (rowIndex, i, row[i * 4 + 1])))

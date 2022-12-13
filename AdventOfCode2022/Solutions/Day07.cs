@@ -13,9 +13,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             return Input
-                .Replace("\r\n", "*")
-                .Replace("\n", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Aggregate(
                 new Tree("/", null),
                 (t, s) => Apply(t, s))
@@ -29,9 +27,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             var dirSizes = Input
-                .Replace("\r\n", "*")
-                .Replace("\n", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Aggregate(
                 new Tree("/", null),
                 (t, s) => Apply(t, s))

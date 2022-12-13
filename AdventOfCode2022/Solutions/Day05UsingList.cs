@@ -13,13 +13,9 @@ namespace AdventOfCode2022.Solutions
 
         public override string Part1()
         {
-            var inputs = Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries);
+            var inputs = Input.SplitByDoubleNewlines();
             var wh = Warehouse.Parse(inputs[0]);
-            var moves = inputs[1].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var moves = inputs[1].SplitByNewlines();
             foreach (var move in moves)
             {
                 wh.Move(move);
@@ -29,13 +25,9 @@ namespace AdventOfCode2022.Solutions
 
         public override string Part2()
         {
-            var inputs = Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries);
+            var inputs = Input.SplitByDoubleNewlines();
             var wh = Warehouse.Parse(inputs[0]);
-            var moves = inputs[1].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var moves = inputs[1].SplitByNewlines();
             foreach (var move in moves)
             {
                 wh.Move(move, true);
@@ -53,7 +45,7 @@ namespace AdventOfCode2022.Solutions
                 return new Warehouse
                 {
                     Lists = input
-                    .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                    .SplitByNewlines()
                     .Reverse()
                     .Skip(1)
                     .SelectMany((row, rowIndex) => Enumerable.Range(0, 9).Select(i => (rowIndex, i, row[i * 4 + 1])))

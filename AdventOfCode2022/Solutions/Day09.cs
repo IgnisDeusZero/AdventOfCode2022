@@ -13,10 +13,8 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                .SplitByNewlines()
+                .Select(x => x.Split(' ', StringSplitOptions.RemoveEmptyEntries))
                 .Select(x => (
                 Direction: x[0] switch
                 {
@@ -62,10 +60,8 @@ namespace AdventOfCode2022.Solutions
         {
             const int ropeLength = 10;
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                .SplitByNewlines()
+                .Select(x => x.Split(' ', StringSplitOptions.RemoveEmptyEntries))
                 .Select(x => 
                     (
                         Direction: x[0] switch

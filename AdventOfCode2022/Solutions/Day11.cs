@@ -14,11 +14,8 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             var monkeys = Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "`")
-                .Split(new[] { '`' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Split('/', StringSplitOptions.RemoveEmptyEntries))
+                .SplitByDoubleNewlines('`')
+                .Select(x => x.SplitByNewlines())
                 .Select(inp => new
                 {
                     Index = int.Parse(inp[0].Replace(":", "")[7..]),
@@ -58,11 +55,8 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             var monkeys = Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "`")
-                .Split(new[] { '`' }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Split('/', StringSplitOptions.RemoveEmptyEntries))
+                .SplitByDoubleNewlines('`')
+                .Select(x => x.SplitByNewlines())
                 .Select(inp => new
                 {
                     Index = int.Parse(inp[0].Replace(":", "")[7..]),

@@ -12,9 +12,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Select(x => x.Split(new[] { '-', ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray())
                 .Count(x => (x[0] <= x[2] && x[1] >= x[3]) || (x[2] <= x[0] && x[3] >= x[1]))
                 .ToString();
@@ -23,9 +21,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Select(x => x.Split(new[] { '-', ',' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray())
                 .Count(x => InRange(x[0], x[1], x[2]) || InRange(x[0], x[1], x[3]) || InRange(x[2], x[3], x[0]) || InRange(x[2], x[3], x[1]))
                 .ToString();

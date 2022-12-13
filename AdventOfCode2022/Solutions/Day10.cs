@@ -13,9 +13,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .SelectMany(x => x == "noop" ? new[] { 0 } : new[] { 0, int.Parse(x.Remove(0, 5)) })
                 .Select((x, i) => (x, i))
                 .Aggregate(new[] { 1, 0 }, (sig, c) =>
@@ -33,9 +31,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .SelectMany(x => x == "noop" ? new[] { 0 } : new[] { 0, int.Parse(x.Remove(0, 5)) })
                 .Select((x, i) => (x, i))
                 .Aggregate(new 

@@ -13,7 +13,7 @@ namespace AdventOfCode2022.Solutions
             return Input
                 .Skip(4)
                 .Aggregate(
-                (Pos: 5, Window: Input.Substring(0,4), FirstMarkerPos: default(int?)),
+                (Pos: 5, Window: Input[0..4], FirstMarkerPos: default(int?)),
                 (state, c) => (
                 state.Pos + 1,
                 state.Window[1..] + c,
@@ -30,7 +30,7 @@ namespace AdventOfCode2022.Solutions
             return Input
                 .Skip(14)
                 .Aggregate(
-                (Pos: 15, Window: Input.Substring(0, 14), FirstMarkerPos: default(int?)),
+                (Pos: 15, Window: Input[0..14], FirstMarkerPos: default(int?)),
                 (state, c) => (
                 state.Pos + 1,
                 state.Window[1..] + c,

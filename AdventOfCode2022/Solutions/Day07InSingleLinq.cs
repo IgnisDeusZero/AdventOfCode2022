@@ -13,9 +13,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             return Input
-                .Replace("\r\n", "*")
-                .Replace("\n", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Aggregate(
                 new
                 {
@@ -29,7 +27,7 @@ namespace AdventOfCode2022.Solutions
                         state.CurrentDirectory[0] = cmd switch
                         {
                             "$ cd /" => "/",
-                            "$ cd .." when state.CurrentDirectory[0] != "/" => state.CurrentDirectory[0].Substring(0, state.CurrentDirectory[0].LastIndexOf("/")),
+                            "$ cd .." when state.CurrentDirectory[0] != "/" => state.CurrentDirectory[0][0..state.CurrentDirectory[0].LastIndexOf("/")],
                             _ => $"{state.CurrentDirectory[0]}/{cmd.Replace("$ cd ", "")}"
                         };
                         if (!state.DirectoryFileSizes.ContainsKey(state.CurrentDirectory[0]))
@@ -40,7 +38,7 @@ namespace AdventOfCode2022.Solutions
 
                     if (char.IsDigit(cmd[0]))
                     {
-                        var filesize = int.Parse(cmd.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0]);
+                        var filesize = int.Parse(cmd.Split(' ' , StringSplitOptions.RemoveEmptyEntries)[0]);
                         state.DirectoryFileSizes
                         .Where(x => state.CurrentDirectory[0].StartsWith(x.Key))
                         .ToArray()
@@ -58,9 +56,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             return Input
-                .Replace("\r\n", "*")
-                .Replace("\n", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Aggregate(
                 new
                 {
@@ -74,7 +70,7 @@ namespace AdventOfCode2022.Solutions
                         state.CurrentDirectory[0] = cmd switch
                         {
                             "$ cd /" => "/",
-                            "$ cd .." when state.CurrentDirectory[0] != "/" => state.CurrentDirectory[0].Substring(0, state.CurrentDirectory[0].LastIndexOf("/")),
+                            "$ cd .." when state.CurrentDirectory[0] != "/" => state.CurrentDirectory[0][0..state.CurrentDirectory[0].LastIndexOf("/")],
                             _ => $"{state.CurrentDirectory[0]}/{cmd.Replace("$ cd ", "")}"
                         };
                         if (!state.DirectoryFileSizes.ContainsKey(state.CurrentDirectory[0]))
@@ -85,7 +81,7 @@ namespace AdventOfCode2022.Solutions
 
                     if (char.IsDigit(cmd[0]))
                     {
-                        var filesize = int.Parse(cmd.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)[0]);
+                        var filesize = int.Parse(cmd.Split(' ', StringSplitOptions.RemoveEmptyEntries)[0]);
                         state.DirectoryFileSizes
                             .Where(x => state.CurrentDirectory[0].StartsWith(x.Key))
                             .ToArray()

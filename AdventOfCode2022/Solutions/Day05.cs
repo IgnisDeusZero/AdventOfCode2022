@@ -13,13 +13,9 @@ namespace AdventOfCode2022.Solutions
 
         public override string Part1()
         {
-            var inputs = Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries);
+            var inputs = Input.SplitByDoubleNewlines();
             var wh = Warehouse.Parse(inputs[0]);
-            var moves = inputs[1].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var moves = inputs[1].SplitByNewlines();
             foreach (var move in moves)
             {
                 wh.Move(move);
@@ -29,13 +25,9 @@ namespace AdventOfCode2022.Solutions
 
         public override string Part2()
         {
-            var inputs = Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Replace("//", "*")
-                .Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries);
+            var inputs = Input.SplitByDoubleNewlines();
             var wh = Warehouse.Parse(inputs[0]);
-            var moves = inputs[1].Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var moves = inputs[1].SplitByNewlines();
             foreach (var move in moves)
             {
                 wh.Move(move, true);
@@ -55,7 +47,7 @@ namespace AdventOfCode2022.Solutions
                     Stacks = Enumerable.Range(0, 9).Select(_ => new Stack<char>()).ToArray()
                 };
 
-                foreach (var row in input.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Reverse().Skip(1))
+                foreach (var row in input.SplitByNewlines().Reverse().Skip(1))
                 {
                     for (var i = 0; i < 9; i++)
                     {

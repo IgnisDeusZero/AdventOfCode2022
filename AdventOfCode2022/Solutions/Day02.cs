@@ -38,9 +38,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part1()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Select(x => strategy1[x])
                 .Sum()
                 .ToString();
@@ -50,9 +48,7 @@ namespace AdventOfCode2022.Solutions
         public override string Part2()
         {
             return Input
-                .Replace("\r\n", "/")
-                .Replace("\n", "/")
-                .Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries)
+                .SplitByNewlines()
                 .Select(x => strategy1[strategy2[x]])
                 .Sum()
                 .ToString();
