@@ -20,5 +20,12 @@ namespace AdventOfCode2022.Solutions
                 .Replace("\n\n", replaceDoubleNewline.ToString())
                 .Split(replaceDoubleNewline, StringSplitOptions.RemoveEmptyEntries);
         }
+
+        public static string[] Split(this string s, string splitBy, char replacement = '*')
+        {
+            return s
+                .Replace(splitBy, replacement.ToString())
+                .Split(replacement, StringSplitOptions.RemoveEmptyEntries);
+        }
     }
 }
